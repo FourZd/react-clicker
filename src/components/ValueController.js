@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import Publicate from './Publicate'
+import Publicate from './publicateButton/Publicate'
+import ShowValues from './statistics/ShowValues';
 
 export default function ValueController() {
 
@@ -40,18 +41,22 @@ export default function ValueController() {
 
 
     return (
-        <Publicate 
-            posts={posts}    
-            money={money}
-            subscribers={subscribers}
-            popularity={popularity}
-            worldTension={worldTension}
+        <main>
+            <ShowValues 
+                posts={posts}    
+                money={money}
+                subscribers={subscribers}
+                popularity={popularity}
+                worldTension={worldTension}
+            />
+            <Publicate
+                addPost={addPost}
+                addSubscribers={addSubscribers}
+                addMoney={addMoney}
 
-            addPost={addPost}
-            addSubscribers={addSubscribers}
-            addMoney={addMoney}
-            updatePopularity={updatePopularity}
-            updateWorldTension={updateWorldTension}
-        />
-    )
-}
+                updatePopularity={updatePopularity}
+                updateWorldTension={updateWorldTension}
+            />
+        </main>
+        )
+    }
