@@ -1,11 +1,12 @@
 import ValueController from "./components/ValueController";
-import Store from "./components/Store";
+import Shop from "./components/shop/Shop";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <main>
       <ValueController />
-      <Store />
+      <Shop />
     </main>
   );
 }
