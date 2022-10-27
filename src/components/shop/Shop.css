@@ -1,0 +1,27 @@
+.shop {
+    width: 100%;
+    height: fit-content;
+    margin-top: 5%;
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+    background-image: url("./shopBackground.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.open-shop-button {
+    width: 100vw;
+    height: 5%;
+    position: fixed;
+    bottom: 0;
+    border-radius: 0 !important; 
+
+}
+
+.shop-button-text {
+    text-align: center;
+    font-size: 100%;
+
+}
