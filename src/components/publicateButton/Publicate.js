@@ -2,7 +2,7 @@ import React from 'react'
 import Button from './Button';
 
 export default function Publicate(props) {
-    const handleClick = () => {
+    const handlePublicateClick = () => {
         props.addMoney()
         props.addPost()
         props.addSubscribers()
@@ -12,7 +12,7 @@ export default function Publicate(props) {
     }
 
     return (
-        <Button handleClick={handleClick} />
+        <Button handleClick={handlePublicateClick} />
     )
 }
 
