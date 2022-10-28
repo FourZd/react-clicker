@@ -6,7 +6,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import './Shop.css'
 
     
-export default function ShopMenu() {
+export default function ShopMenu(props) {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
@@ -22,11 +22,10 @@ export default function ShopMenu() {
                     <Offcanvas.Title><h2>Shop</h2></Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    <ShopAssortment />
+                    <ShopAssortment/>
                 </Offcanvas.Body>
             </Offcanvas>
         </section>
     
   )
 }
-
