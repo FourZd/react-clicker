@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Publicate from './publicateButton/Publicate'
 import ShowValues from './statistics/ShowValues';
+import Shop from "./shop/Shop";
 
 export default function ValueController() {
 
@@ -56,6 +57,9 @@ export default function ValueController() {
 
                 updatePopularity={updatePopularity}
                 updateWorldTension={updateWorldTension}
+            />
+            <Shop 
+                qwer = {addMoney}
             />
         </main>
         )
