@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ShopItems from './ShopItems'
 
 
 export default function ShopAssortment(props) {
-    const shopAssortment = [
+    const [shopAssortment, setShopAssortment] = useState([
         {item_id: 1, name: 'Item 1', price: 11, effect: 'some_effect', image: 'somePicture.png', available: true},
         {item_id: 2, name: 'Item 2', price: 123, effect: 'some_effect', image: 'somePicture.png', available: true},
         {item_id: 3, name: 'Item 3', price: 1444, effect: 'some_effect', image: 'somePicture.png', available: true},
@@ -16,23 +16,22 @@ export default function ShopAssortment(props) {
         {item_id: 10, name: 'Item 10', price: 232332, effect: 'some_effect', image: 'somePicture.png', available: true},
         {item_id: 11, name: 'Item 11', price: 233232, effect: 'some_effect', image: 'somePicture.png', available: true},
         {item_id: 12, name: 'Item 12', price: 2323, effect: 'some_effect', image: 'somePicture.png', available: true},
-    ]
-
-    const availableAssortment = shopAssortment.filter(dict => dict.available === true)
+    ])
 
     const handleUpgradeBuy = (bought_upgrade_id) => {
-        shopAssortment.map((dict) => {
-            if (dict['item_id'] === bought_upgrade_id) {
-                console.log('working')
+        const updatedShopAssortment = [...shopAssortment]
+        updatedShopAssortment.map((dict) => {
+            if (dict.item_id === bought_upgrade_id) {
                 dict['available'] = false
+                setShopAssortment(updatedShopAssortment)
             }
         })
-
     }
+
 
     return (
         <ShopItems 
-            shopAssortment = {availableAssortment}
+            shopAssortment = {shopAssortment}
             handleUpgradeBuy = {handleUpgradeBuy}
         />
     )

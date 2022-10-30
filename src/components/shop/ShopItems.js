@@ -2,8 +2,9 @@ import React from 'react'
 import './ShopItems.css'
 
 export default function ShopItems(props) {
+    const availableAssortment = props.shopAssortment.filter(dict => dict['available'] === true)
     return (
-        props.shopAssortment.map((item) => {
+        availableAssortment.map((item) => {
             return ( 
                 <div className='shop-items' key={item.item_id}>
                     <div className='image-bg'>
@@ -13,8 +14,8 @@ export default function ShopItems(props) {
                         <h4>{item.name}</h4>
                         <p>Price: {item.price}$</p>
                         <p>{item.effect}</p>
-                    <button onClick={() => props.handleUpgradeBuy(item.item_id)}>Publicate</button>
                     </div>
+                    <button onClick={() => props.handleUpgradeBuy(item.item_id)}>Publicate</button>
                 </div>
                 )
             }
