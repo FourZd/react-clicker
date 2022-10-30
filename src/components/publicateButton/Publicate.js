@@ -3,12 +3,8 @@ import Button from './Button';
 
 export default function Publicate(props) {
     const handlePublicateClick = () => {
-        props.addMoney()
-        props.addPost()
-        props.addSubscribers()
-        
-        props.updatePopularity()
-        props.updateWorldTension()
+        const values = ['money', 'posts', 'subscribers', 'worldTension']
+        values.map(value => props.handleValueIncrement(value))
     }
 
     return (
