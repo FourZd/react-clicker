@@ -52,6 +52,17 @@ export default function ValueController() {
     }
     /* ------------------------------------------------------------------------------------- */
 
+    const decreaseValue = (value, amount) => {
+        switch (value) {
+
+            case 'money':
+                setMoney(money - amount)
+                break
+            
+            default:
+                throw 'Something is wrong with decrease'
+        }
+    }
     /* ------------Adding effects from upgrades / items to value multipliers--------------- */
     const handleMultiplier = (value, effect) => {
         switch (value) {
@@ -60,7 +71,7 @@ export default function ValueController() {
                 setSubscribersMultiplierFormula(subscribersMultiplierFormula + effect)
                 break
             case 'money':
-                setMoneyMultiplierFormula(moneyMultiplierFormula + effect)
+                setMoneyMultiplierFormula(...moneyMultiplierFormula + effect)
                 break
             case 'worldTension':
                 setWorldTensionMultiplierFormula(worldTensionMultiplierFormula + effect)
@@ -114,6 +125,8 @@ export default function ValueController() {
             />
             <ShopAccess
                 handleMultiplier = {handleMultiplier}
+                decreaseCurrency = {decreaseValue}
+                money = {money}
             />
         </main>
         )

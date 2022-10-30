@@ -24,6 +24,8 @@ export default function ShopAccess(props) {
                 <Offcanvas.Body>
                     <ShopAssortment
                         handleMultiplier = {props.handleMultiplier}
+                        decreaseCurrency = {props.decreaseCurrency}
+                        money = {props.money}
                     />
                 </Offcanvas.Body>
             </Offcanvas>

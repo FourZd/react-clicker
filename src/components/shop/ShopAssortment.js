@@ -36,7 +36,7 @@ export default function ShopAssortment(props) {
 
         {item_id: 11, name: 'Item 11', price: 233232, effect: {'worldTension': 2, 'money': 2}, 
         description: 'Увеличивает прирост денег и эффект хаоса вдвое', image: 'somePicture.png', available: true},
-        
+
         {item_id: 12, name: 'Item 12', price: 2323, effect: {'subscribers': 2}, 
         description: 'Увеличивает прирост подписчиков вдвое',  image: 'somePicture.png', available: true},
     ])
@@ -45,17 +45,19 @@ export default function ShopAssortment(props) {
         const updatedShopAssortment = [...shopAssortment]
         updatedShopAssortment.map((dict) => {
             if (dict.item_id === bought_upgrade_id) {
-                dict['available'] = false
-                setShopAssortment(updatedShopAssortment)
-
-                const item_effect = Object.entries(dict.effect) // [[value, effect], ] array
-                if (item_effect.length > 1) {
-                    console.log('IN DEVELOPMENT') // ------------------------------------------------------ Multiple effects
-                } else {
-                    props.handleMultiplier(
-                        item_effect[0][0],
-                        item_effect[0][1]
-                    )
+                if (props.money >= dict.price) {
+                    dict['available'] = false
+                    setShopAssortment(updatedShopAssortment)
+                    props.decreaseCurrency('money', dict.price)
+                    const item_effect = Object.entries(dict.effect) // [[value, effect], ] array
+                    if (item_effect.length > 1) {
+                        console.log('IN DEVELOPMENT') // ------------------------------------------------------ Multiple effects
+                    } else {
+                        props.handleMultiplier(
+                            item_effect[0][0],
+                            item_effect[0][1]
+                        )
+                    }
                 }
             }
         })
