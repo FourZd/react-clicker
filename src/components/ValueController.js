@@ -68,13 +68,13 @@ export default function ValueController() {
         switch (value) {
 
             case 'subscribers':
-                setSubscribersMultiplierFormula(subscribersMultiplierFormula + effect)
+                setSubscribersMultiplierFormula(subscribersMultiplierFormula*effect)
                 break
             case 'money':
-                setMoneyMultiplierFormula(...moneyMultiplierFormula + effect)
+                setMoneyMultiplierFormula(moneyMultiplierFormula*effect)
                 break
             case 'worldTension':
-                setWorldTensionMultiplierFormula(worldTensionMultiplierFormula + effect)
+                setWorldTensionMultiplierFormula(worldTensionMultiplierFormula*effect)
                 break
             default:
                 throw 'Value OR effect is not valid'
