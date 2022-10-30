@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import ShopAssortment from './ShopAssortment'
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-
+import ShopItems from './ShopItems';
 import './Shop.css'
+
 
     
 export default function ShopAccess(props) {
@@ -22,10 +22,9 @@ export default function ShopAccess(props) {
                     <Offcanvas.Title><h2>Shop</h2></Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    <ShopAssortment
-                        handleMultiplier = {props.handleMultiplier}
-                        decreaseCurrency = {props.decreaseCurrency}
-                        money = {props.money}
+                    <ShopItems
+                        shopAssortment = {props.shopAssortment}
+                        handleUpgradeBuy = {props.handleUpgradeBuy}
                     />
                 </Offcanvas.Body>
             </Offcanvas>

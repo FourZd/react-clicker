@@ -1,34 +1,33 @@
 import React, {useState, useEffect} from 'react'
 import Publicate from './publicateButton/Publicate'
 import ShowValues from './statistics/ShowValues';
-import ShopAccess from './shop/ShopAccess';
+import ShopAssortment from './shop/ShopAssortment';
 
 export default function ValueController() {
 
-    /* -------------- Value states -----------------*/
+    const [dice] = useState(Math.floor(Math.random() * 5));
+    /* ---------------------- Value states --------------------------------------------------*/
     const [posts, setPosts] = useState(0); // posts hook
     const [subscribers, setSubscribers] = useState(0); // subs hook
     const [money, setMoney] = useState(0); // money hook
-    const [popularity, setPopularity] = useState(0); // popularity
+    const [popularity, setPopularity] = useState(1); // popularity
     const [worldTension, setWorldTension] = useState(1);
     /* ------------------------------------------------------------------------------------- */
-
-    /* -------------- Formula states -----------------*/
-    const [subscribersMultiplierFormula, setSubscribersMultiplierFormula] = useState(1 * popularity * worldTension)
-    const [moneyMultiplierFormula, setMoneyMultiplierFormula] = useState(subscribers*0.002)
-    const [worldTensionMultiplierFormula, setWorldTensionMultiplierFormula] = useState(popularity/10000)
+    const [subscribersBonus, setSubscribersBonus] = useState(1); // subs hook
+    const [moneyBonus, setMoneyBonus] = useState(1); // money hook
+    const [worldTensionBonus, setWorldTensionBonus] = useState(1); // popularity
+    /* ----------------------- Formulas -----------------------------------------------------*/
+    let subscribersMultiplierFormula = 1 * popularity * worldTension * subscribersBonus
+    let moneyMultiplierFormula = subscribers * 0.002 * moneyBonus
+    let worldTensionMultiplierFormula = popularity/10000 * worldTensionBonus
     /* ------------------------------------------------------------------------------------- */
-
-    
 
     /* -------------- Handling increment events -----------------*/
     const increaseValue = (value) => {
         switch (value) {
 
             case 'subscribers':
-                setSubscribers(popularity 
-                    ? (subscribers + subscribersMultiplierFormula) 
-                    : (subscribers + 0.2))
+                setSubscribers(subscribers + subscribersMultiplierFormula) 
                 setPopularity(subscribers / 50) // popularity constant formula
                 break
 
@@ -68,13 +67,13 @@ export default function ValueController() {
         switch (value) {
 
             case 'subscribers':
-                setSubscribersMultiplierFormula(subscribersMultiplierFormula*effect)
+                setSubscribersBonus(subscribersBonus * effect)
                 break
             case 'money':
-                setMoneyMultiplierFormula(moneyMultiplierFormula*effect)
+                setMoneyBonus(moneyBonus * effect)
                 break
             case 'worldTension':
-                setWorldTensionMultiplierFormula(worldTensionMultiplierFormula*effect)
+                setWorldTensionBonus(worldTensionBonus * effect)
                 break
             default:
                 throw 'Value OR effect is not valid'
@@ -85,14 +84,14 @@ export default function ValueController() {
     
     /* ---------------------------------Random page title----------------------------------- */
     useEffect(() => {
-        const dice = Math.floor(Math.random() * 5);
+        
         let title = null;
         switch (dice) {
             case 0:
                 title = `You have ${posts} posts!`
                 break
             case 1:
-                title = `${subscribers} people following your channel!`
+                title = `${Math.round(subscribers)} people following your channel!`
                 break
             case 2:
                 title = `${money}$ on your bank account 😎`
@@ -108,7 +107,7 @@ export default function ValueController() {
                 throw 'Hey, something is wrong with the document title...'
         }
         document.title = title;
-        }, []);
+        });
     /* ------------------------------------------------------------------------------------- */
 
     return (
@@ -123,7 +122,7 @@ export default function ValueController() {
             <Publicate
                 handleValueIncrement = {increaseValue}
             />
-            <ShopAccess
+            <ShopAssortment
                 handleMultiplier = {handleMultiplier}
                 decreaseCurrency = {decreaseValue}
                 money = {money}

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import ShopItems from './ShopItems'
+import ShopAccess from './ShopAccess'
 
 
 export default function ShopAssortment(props) {
     const [shopAssortment, setShopAssortment] = useState([
-        {item_id: 1, name: 'Item 1', price: 11, effect: {'subscribers': 2}, 
+        {item_id: 1, name: 'Item 1', price: 1, effect: {'subscribers': 2}, 
         description: 'Увеличивает прирост подписчиков вдвое', image: 'somePicture.png', available: true},
 
         {item_id: 2, name: 'Item 2', price: 123, effect: {'money': 2}, 
@@ -65,7 +65,7 @@ export default function ShopAssortment(props) {
 
 
     return (
-        <ShopItems 
+        <ShopAccess
             shopAssortment = {shopAssortment}
             handleUpgradeBuy = {handleUpgradeBuy}
         />
