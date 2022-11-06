@@ -1,15 +1,19 @@
 import React from 'react'
-import './Button.css'
+import './Activities.css'
 import { increaseMoney } from '../../store/reducers/values/moneySlice'
 import { useDispatch } from 'react-redux'
 
-export default function Activity() {
+export default function Activity(props) {
     const dispatch = useDispatch()
     return (
-        <section className='publicate-button'>
-            <h1>Post something!</h1> 
-            <button onClick={() => {dispatch(increaseMoney(5))}}>Publicate</button>
-        </section>
+        props.activitiesList.map(activity => {
+            return (
+                <section className='activity-block'>
+                    <h3>{activity.name}</h3> 
+                    <button onClick={() => {dispatch(increaseMoney(activity.income))}}>Publicate</button>
+                </section>
+            )
+        })
     )
 }
 
