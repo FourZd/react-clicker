@@ -18,8 +18,7 @@ const incomeMultiplierSlice = createSlice({
     },
     reducers: {
         increaseSingleMultiplier(state, action) {
-            console.log('asndj')
-            state[action.payload.activityName] *= action.payload.effect
+            state[action.payload[0]] *= action.payload[1]
         },
 
         increaseAllMultipliers(state, action) {
