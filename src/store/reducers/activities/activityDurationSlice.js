@@ -2,19 +2,19 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const activityDurationSlice = createSlice({
     name: 'activityDuration',
-    initialState: {
-        tgChannel: 7,
-        ytChannel: 15,
-        newsWebsite: 30,
-        radioStation: 60,
-        talkShow: 120,
-        tvChannel: 240,
-        politicalParty: 480,
-        secretSociety: 960,
-        privateIsland: 1920,
-        bananaRepublic: 3840,
-        orbitalLoudspeaker: 7680,
-        reptiloidConsilium: 15360
+    initialState: { // in MS
+        tgChannel: 3000,
+        ytChannel: 6000,
+        newsWebsite: 12000,
+        radioStation: 24000,
+        talkShow: 48000,
+        tvChannel: 96000,
+        politicalParty: 192000,
+        secretSociety: 384000,
+        privateIsland: 768000,
+        bananaRepublic: 1536000,
+        orbitalLoudspeaker: 3072000,
+        reptiloidConsilium: 6144000
     },
     reducers: {
         decreaseSingleDuration(state, action) {
