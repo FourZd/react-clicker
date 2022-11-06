@@ -1,15 +1,15 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ShowValues from "./components/statistics/ShowValues";
 import React, { Fragment } from "react";
-import PublicateButton from "./components/activities/PublicateButton";
 import ShopAssortment from './components/shop/ShopAssortment';
+import ActivitiesList from './components/activities/ActivitiesList';
 
 function App() {
   return (
     <Fragment>
         <ShowValues />
         <main>
-            <PublicateButton />
+            <ActivitiesList />
             <ShopAssortment />
         </main>
     </Fragment>

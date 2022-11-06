@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import './ShowValues.css'
-import { moneySelector } from '../../store/reducers/moneySlice';
+import { moneySelector } from '../../store/reducers/values/moneySlice';
 import { useSelector } from 'react-redux';
 export default function ShowValues(props) {
 

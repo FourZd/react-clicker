@@ -1,12 +1,12 @@
 import React from 'react'
 import './ShopItems.css'
 
-export default function ShopItems(props) {
+export default function ShopItem(props) {
     const availableAssortment = props.shopAssortment.filter(dict => dict['available'] === true)
     return (
         availableAssortment.map((item) => {
             return ( 
-                <div className='shop-items' key={item.item_id}>
+                <div className='shop-items' key={item.itemId}>
                     <div className='image-bg'>
                         <img src={'./img/' + item.image} className='item-img'></img>
                     </div>
@@ -15,7 +15,7 @@ export default function ShopItems(props) {
                         <p>Price: {item.price}$</p>
                         <p>{item.description}</p>
                     </div>
-                    <button>Publicate</button>
+                    <button onClick={() => props.handleUpgradeBuy(item.itemId)}>Buy</button>
                 </div>
                 )
             }

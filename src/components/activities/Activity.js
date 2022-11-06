@@ -1,9 +1,9 @@
 import React from 'react'
 import './Button.css'
-import { increaseMoney } from '../../store/reducers/moneySlice'
+import { increaseMoney } from '../../store/reducers/values/moneySlice'
 import { useDispatch } from 'react-redux'
 
-export default function PublicateButton(props) {
+export default function Activity() {
     const dispatch = useDispatch()
     return (
         <section className='publicate-button'>

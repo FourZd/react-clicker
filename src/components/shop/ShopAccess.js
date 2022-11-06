@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import ShopItems from './ShopItems';
+import ShopItem from './ShopItem';
 import './Shop.css'
 
 
@@ -22,8 +22,9 @@ export default function ShopAccess(props) {
                     <Offcanvas.Title><h2>Shop</h2></Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    <ShopItems
+                    <ShopItem
                         shopAssortment = {props.shopAssortment}
+                        handleUpgradeBuy = {props.handleUpgradeBuy}
                     />
                 </Offcanvas.Body>
             </Offcanvas>
