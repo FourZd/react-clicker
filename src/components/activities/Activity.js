@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Activities.css'
 
 
@@ -11,8 +11,10 @@ export default function Activity(props) {
                 <section className='activity-block'>
                     <h3>{activity.name}</h3> 
                     <ActivityButton 
+                        disabled = {activity.quantity ? false : true}
                         income = {activity.income}
                         duration = {activity.duration}
+                        quantity = {activity.quantity}
                     />
                 </section>
             )

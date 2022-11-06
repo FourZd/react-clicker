@@ -1,86 +1,97 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import Activity from './Activity'
 import './Activities.css'
-import { multiplierSelector } from '../../store/reducers/activities/incomeSlice'
+import {activityIncomeMultiplierSelector} from '../../store/reducers/activities/activityIncomeMultiplierSlice'
 import { durationSelector } from '../../store/reducers/activities/activityDurationSlice'
-import { useSelector } from 'react-redux'
+import { quantitySelector } from '../../store/reducers/activities/activityQuantitySlice'
 
 export default function ActivitiesList() {
-    const multiplierList = useSelector(multiplierSelector)
+
+    const multiplierList = useSelector(activityIncomeMultiplierSelector)
     const durationList = useSelector(durationSelector)
+    const quantityList = useSelector(quantitySelector)
 
-    const [activitiesList, setActivitiesList] = useState([
+    const activitiesList = [
         {
-            name: 'tgChannel', 
-            income: multiplierList['tgChannel'], 
-            duration: durationList['tgChannel']
-        },
-        
-        {
-            name: 'ytChannel', 
-            income: multiplierList['ytChannel'], 
-            duration: durationList['ytChannel']
+            name: 'tgChannel',
+            income: 1 * multiplierList['tgChannel'], 
+            duration: durationList['tgChannel'],
+            quantity: quantityList['tgChannel']
         },
         {
-            name: 'newsWebsite', 
-            income: multiplierList['newsWebsite'], 
-            duration: durationList['newsWebsite']
+            name: 'ytChannel',
+            income: 10 * multiplierList['ytChannel'], 
+            duration: durationList['ytChannel'],
+            quantity: quantityList['ytChannel']
         },
         {
-            name: 'radioStation', 
-            income: multiplierList['radioStation'], 
-            duration: durationList['radioStation']
+            name: 'newsWebsite',
+            income: 100 * multiplierList['newsWebsite'], 
+            duration: durationList['newsWebsite'],
+            quantity: quantityList['newsWebsite']
         },
         {
-            name: 'talkShow', 
-            income: multiplierList['talkShow'], 
-            duration: durationList['talkShow']
+            name: 'radioStation',
+            income: 1000 * multiplierList['radioStation'], 
+            duration: durationList['radioStation'],
+            quantity: quantityList['radioStation']
         },
         {
-            name: 'tvChannel', 
-            income: multiplierList['tvChannel'], 
-            duration: durationList['tvChannel']
+            name: 'talkShow',
+            income: 10000 * multiplierList['talkShow'], 
+            duration: durationList['talkShow'],
+            quantity: quantityList['talkShow']
         },
         {
-            name: 'politicalParty', 
-            income: multiplierList['politicalParty'], 
-            duration: durationList['politicalParty']
+            name: 'tvChannel',
+            income: 100000 * multiplierList['tvChannel'], 
+            duration: durationList['tvChannel'],
+            quantity: quantityList['tvChannel']
         },
         {
-            name: 'secretSociety', 
-            income: multiplierList['secretSociety'], 
-            duration: durationList['secretSociety']
+            name: 'politicalParty',
+            income: 1000000 * multiplierList['politicalParty'], 
+            duration: durationList['politicalParty'],
+            quantity: quantityList['politicalParty']
         },
         {
-            name: 'privateIsland', 
-            income: multiplierList['privateIsland'], 
-            duration: durationList['privateIsland']
+            name: 'secretSociety',
+            income: 10000000 * multiplierList['secretSociety'], 
+            duration: durationList['secretSociety'],
+            quantity: quantityList['secretSociety']
         },
         {
-            name: 'bananaRepublic', 
-            income: multiplierList['bananaRepublic'], 
-            duration: durationList['bananaRepublic']
+            name: 'privateIsland',
+            income: 100000000 * multiplierList['privateIsland'], 
+            duration: durationList['privateIsland'],
+            quantity: quantityList['privateIsland']
         },
         {
-            name: 'orbitalLoudspeaker', 
-            income: multiplierList['orbitalLoudspeaker'], 
-            duration: durationList['orbitalLoudspeaker']
+            name: 'bananaRepublic',
+            income: 1000000000 * multiplierList['bananaRepublic'], 
+            duration: durationList['bananaRepublic'],
+            quantity: quantityList['bananaRepublic']
         },
         {
-            name: 'reptiloidConsilium', 
-            income: multiplierList['reptiloidConsilium'], 
-            duration: durationList['reptiloidConsilium']
+            name: 'orbitalLoudspeaker',
+            income: 10000000000 * multiplierList['orbitalLoudspeaker'], 
+            duration: durationList['orbitalLoudspeaker'],
+            quantity: quantityList['orbitalLoudspeaker']
+        },
+        {
+            name: 'reptiloidConsilium',
+            income: 100000000000 * multiplierList['reptiloidConsilium'], 
+            duration: durationList['reptiloidConsilium'],
+            quantity: quantityList['reptiloidConsilium']
         }
-
-    ])
-
-
+    ]
 
     return (
         <article className='activities'>
-        <Activity 
-            activitiesList = {activitiesList}
-        />
+            <Activity 
+                activitiesList = {activitiesList}
+            />
         </article>
     )
 }
