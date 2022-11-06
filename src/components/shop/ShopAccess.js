@@ -24,7 +24,6 @@ export default function ShopAccess(props) {
                 <Offcanvas.Body>
                     <ShopItems
                         shopAssortment = {props.shopAssortment}
-                        handleUpgradeBuy = {props.handleUpgradeBuy}
                     />
                 </Offcanvas.Body>
             </Offcanvas>

@@ -15,7 +15,7 @@ export default function ShopItems(props) {
                         <p>Price: {item.price}$</p>
                         <p>{item.description}</p>
                     </div>
-                    <button onClick={() => props.handleUpgradeBuy(item.item_id)}>Publicate</button>
+                    <button>Publicate</button>
                 </div>
                 )
             }

@@ -1,8 +1,14 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { decreaseMoney, moneySelector } from '../../store/reducers/moneySlice'
 import ShopAccess from './ShopAccess'
 
 
-export default function ShopAssortment(props) {
+export default function ShopAssortment() {
+
+    const money = useSelector(moneySelector)
+    const dispatch = useDispatch()
+
     const [shopAssortment, setShopAssortment] = useState([
         {item_id: 1, name: 'Item 1', price: 1, effect: {'subscribers': 2}, 
         description: 'Увеличивает прирост подписчиков вдвое', image: 'somePicture.png', available: true},
@@ -40,24 +46,24 @@ export default function ShopAssortment(props) {
         {item_id: 12, name: 'Item 12', price: 2323, effect: {'subscribers': 2}, 
         description: 'Увеличивает прирост подписчиков вдвое',  image: 'somePicture.png', available: true},
     ])
-
+    
     const handleUpgradeBuy = (bought_upgrade_id) => {
         const updatedShopAssortment = [...shopAssortment]
         updatedShopAssortment.map((dict) => {
             if (dict.item_id === bought_upgrade_id) {
-                if (props.money >= dict.price) {
+                if (money >= dict.price) {
                     dict['available'] = false
                     setShopAssortment(updatedShopAssortment)
-                    props.decreaseCurrency('money', dict.price)
+                    dispatch(decreaseMoney(dict.price))
                     const item_effect = Object.entries(dict.effect) // [[value, effect], ] array
-                    if (item_effect.length > 1) {
-                        console.log('IN DEVELOPMENT') // ------------------------------------------------------ Multiple effects
-                    } else {
-                        props.handleMultiplier(
-                            item_effect[0][0],
-                            item_effect[0][1]
-                        )
-                    }
+                    //if (item_effect.length > 1) {
+                    //    console.log('IN DEVELOPMENT') // ------------------------------------------------------ Multiple effects
+                    //} else {
+                    //    props.handleMultiplier(
+                    //        item_effect[0][0],
+                    //        item_effect[0][1]
+                    //    )
+                    //}
                 }
             }
         })
@@ -66,8 +72,7 @@ export default function ShopAssortment(props) {
 
     return (
         <ShopAccess
-            shopAssortment = {shopAssortment}
-            handleUpgradeBuy = {handleUpgradeBuy}
+            shopAssortment = {shopAssortment} 
         />
     )
 }
