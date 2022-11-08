@@ -5,10 +5,10 @@ import { decreaseMoney } from '../../store/reducers/values/moneySlice'
 
 export default function ActivityBuy(props) {
     const dispatch = useDispatch()
-    const buyActivity = (name, price, quantity) => {
+    const buyActivity = (id, price, quantity) => {
         switch (quantity) {
             case 1:
-                dispatch(buyOneActivity(name))
+                dispatch(buyOneActivity(id))
                 dispatch(decreaseMoney(price))
                 break
         }
@@ -16,6 +16,6 @@ export default function ActivityBuy(props) {
     }
 
     return (
-        <button className='buy-button' disabled={props.disabled} onClick={() => buyActivity(props.name, props.price, props.quantity)}>Buy</button>
+        <button className='buy-button' disabled={props.disabled} onClick={() => buyActivity(props.id, props.price, props.quantity)}>Buy</button>
     )
 }

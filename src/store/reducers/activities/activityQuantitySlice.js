@@ -2,24 +2,26 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const activityQuantitySlice = createSlice({
     name: 'activityQuantity',
-    initialState: { 
-        tgChannel: 1, 
-        ytChannel: 0, 
-        newsWebsite: 0, 
-        radioStation: 0, 
-        talkShow: 0, 
-        tvChannel: 0, 
-        politicalParty: 0, 
-        secretSociety: 0,
-        privateIsland: 0,
-        bananaRepublic: 0, 
-        orbitalLoudspeaker: 0, 
-        reptiloidConsilium: 0 
-    },
+    initialState: [
+        {id: 1, quantity: 1},
+        {id: 2, quantity: 0},
+        {id: 3, quantity: 0},
+        {id: 4, quantity: 0},
+        {id: 5, quantity: 0},
+        {id: 6, quantity: 0},
+        {id: 7, quantity: 0},
+        {id: 8, quantity: 0},
+        {id: 9, quantity: 0},
+        {id: 10, quantity: 0},
+        {id: 11, quantity: 0}, 
+        {id: 12, quantity: 0}
+    ],
 
     reducers: {
         buyOneActivity(state, action) {
-            state[action.payload] += 1
+            console.log(action.payload)
+            let target = state.find(activity => activity.id === action.payload)
+            target.quantity += 1
         },
     }
 })

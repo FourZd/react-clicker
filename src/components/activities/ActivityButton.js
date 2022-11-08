@@ -6,7 +6,8 @@ import './Activities.css'
 export default function ActivityButton(props) {
     const [timeOut, setTimeOut] = useState(false)
 
-    const available = useSelector(quantitySelector)[props.name]
+    const available = useSelector(quantitySelector).find(activity => activity.id === props.id).quantity
+    console.log(available)
     const dispatch = useDispatch()
     const buttonCooldown = () => {
         setTimeOut(true)
