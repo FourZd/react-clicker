@@ -8,9 +8,10 @@ export default function ActivityButton(props) {
     
     const buttonCooldown = () => {
         setDisabled(true)
-        dispatch(increaseMoney(props.income * props.quantity))
+        
         setTimeout(() => {
             setDisabled(false)
+            dispatch(increaseMoney(props.income))
         }, props.duration)
         
     }

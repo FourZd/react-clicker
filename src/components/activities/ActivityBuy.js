@@ -10,7 +10,6 @@ export default function ActivityBuy(props) {
             case 1:
                 dispatch(buyOneActivity(name))
                 dispatch(decreaseMoney(price))
-                props.updateActivities()
                 break
         }
         

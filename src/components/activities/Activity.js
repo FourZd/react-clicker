@@ -28,7 +28,6 @@ export default function Activity(props) {
                         quantity = {1}
                         price = {activity.price}
                         name = {activity.name}
-                        updateActivities = {props.updateActivities}
 
                     />
                     <h4>{activity.quantity}</h4>

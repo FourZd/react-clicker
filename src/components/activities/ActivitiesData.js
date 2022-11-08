@@ -17,12 +17,12 @@ class ActivityGenerator {
     constructor() {
         this.activityList = []
     }
-    createActivity(name, income, price, multiplierList, durationList, quantityList) {
+    createActivity(name, income, price, durationList, quantityList) {
         const activity = {
             name: name,
             duration: durationList[name],
             quantity: quantityList[name],
-            income: income * multiplierList[name] * quantityList[name],
+            income: income,
             price: price
         }
         return activity
@@ -32,7 +32,7 @@ class ActivityGenerator {
         activityNames.map(activity => {
             let newActivity = this.createActivity(
                 activity.name, 
-                activity.income, 
+                activity.income * multiplierList[activity.name] * quantityList[activity.name], 
                 activity.price, 
                 multiplierList, 
                 durationList, 
@@ -42,13 +42,11 @@ class ActivityGenerator {
             if (!(this.activityList.find(element => element.name === activity.name))) { // if not
                 this.activityList.push(newActivity)
             } else {
-                this.activityList.map(activity => {
-                    activity.duration = durationList[activity.name]
-                    activity.quantity = quantityList[activity.name]
-                    activity.income = activity.income * multiplierList[activity.name] * quantityList[activity.name]
-                    console.log(activity.income, multiplierList[activity.name], quantityList[activity.name])
-                })
-            }
+                const target = this.activityList.find((obj) => obj.name === activity.name);
+                target.duration = durationList[activity.name]
+                target.quantity = quantityList[activity.name]
+                target.income = activity.income * multiplierList[activity.name] * quantityList[activity.name]
+                }
         })
         return this.activityList
     }
