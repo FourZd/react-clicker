@@ -6,10 +6,10 @@ import ActivityButton from './ActivityButton'
 
 import { moneySelector } from '../../store/reducers/values/moneySlice'
 import { useSelector } from 'react-redux'
+import { quantitySelector } from '../../store/reducers/activities/activityQuantitySlice'
 
 export default function Activity(props) {
     const money = useSelector(moneySelector)
-    
 
     return (
         props.activitiesList.map(activity => {
@@ -17,10 +17,11 @@ export default function Activity(props) {
                 <section className='activity-block'>
                     <h3>{activity.name}</h3> 
                     <ActivityButton 
-                        disabled = {activity.quantity ? false : true}
+                        name = {activity.name}
                         income = {activity.income}
                         duration = {activity.duration}
                         quantity = {activity.quantity}
+
                     />
                     <h3>{activity.price}$</h3>
                     <ActivityBuy // Buy one

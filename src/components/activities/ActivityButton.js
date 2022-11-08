@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { durationSelector } from '../../store/reducers/activities/activityDurationSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { quantitySelector } from '../../store/reducers/activities/activityQuantitySlice'
 import { increaseMoney } from '../../store/reducers/values/moneySlice'
 
 export default function ActivityButton(props) {
-    const [disabled, setDisabled] = useState(props.disabled)
+    const [timeOut, setTimeOut] = useState(false)
+
+    const available = useSelector(quantitySelector)[props.name]
     const dispatch = useDispatch()
     const buttonCooldown = () => {
-        setDisabled(true)
+        setTimeOut(true)
         
         setTimeout(() => {
-            setDisabled(false)
+            setTimeOut(false)
             dispatch(increaseMoney(props.income))
         }, props.duration)
         
     }
     return (
-        <button disabled={disabled} onClick={() => {buttonCooldown()}}>Publicate</button>
+        <button disabled={timeOut || !available} onClick={() => {buttonCooldown()}}>Publicate</button>
     )
 }
