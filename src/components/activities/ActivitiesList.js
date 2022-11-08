@@ -12,11 +12,11 @@ export default function ActivitiesList() {
     const durationList = useSelector(durationSelector)
     const quantityList = useSelector(quantitySelector)
     const [activityList, setActivityList] = useState(activityGenerator.getActivityList(multiplierList, durationList, quantityList))
-
     return (
         <article className='activities'>
             <Activity 
                 activitiesList = {activityList}
+
             />
         </article>
     )

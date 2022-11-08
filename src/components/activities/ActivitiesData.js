@@ -34,11 +34,9 @@ class ActivityGenerator {
                 activity.name, 
                 activity.income * multiplierList[activity.name] * quantityList[activity.name], 
                 activity.price, 
-                multiplierList, 
                 durationList, 
                 quantityList
                 )
-            
             if (!(this.activityList.find(element => element.name === activity.name))) { // if not
                 this.activityList.push(newActivity)
             } else {
