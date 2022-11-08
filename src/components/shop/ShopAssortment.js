@@ -9,7 +9,7 @@ export default function ShopAssortment() {
 
     const money = useSelector(moneySelector)
     const dispatch = useDispatch()
-
+    
     const [shopAssortment, setShopAssortment] = useState([
         {itemId: 1, name: 'Item 1', price: 1, effect: {'tgChannel': 2}, 
         description: 'Увеличивает прирост подписчиков вдвое', image: 'somePicture.png', available: true},

@@ -18,10 +18,12 @@ const activityQuantitySlice = createSlice({
     },
 
     reducers: {
-        buyOneActivity(state, action) {},
+        buyOneActivity(state, action) {
+            state[action.payload] += 1
+        },
     }
 })
 
 export const quantitySelector = (state) => state.activityQuantity
-export const {increaseSingleMultiplier, increaseAllMultipliers} = activityQuantitySlice.actions
+export const {buyOneActivity} = activityQuantitySlice.actions
 export default activityQuantitySlice.reducer
