@@ -16,6 +16,6 @@ export default function ActivityBuy(props) {
     }
 
     return (
-        <button disabled={props.disabled} onClick={() => buyActivity(props.name, props.price, props.quantity)}>Buy</button>
+        <button className='buy-button' disabled={props.disabled} onClick={() => buyActivity(props.name, props.price, props.quantity)}>Buy</button>
     )
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { quantitySelector } from '../../store/reducers/activities/activityQuantitySlice'
 import { increaseMoney } from '../../store/reducers/values/moneySlice'
-
+import './Activities.css'
 export default function ActivityButton(props) {
     const [timeOut, setTimeOut] = useState(false)
 
@@ -18,6 +18,6 @@ export default function ActivityButton(props) {
         
     }
     return (
-        <button disabled={timeOut || !available} onClick={() => {buttonCooldown()}}>Publicate</button>
+        <button className='activity-button' disabled={timeOut || !available} onClick={() => {buttonCooldown()}}>Publicate</button>
     )
 }

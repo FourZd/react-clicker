@@ -20,8 +20,7 @@
     box-shadow: 3px 3px white;
 }
 
-.activity-block button {
-    border-radius: 10%;
+.activity-button {
     display: block;
     height: 100%;
     position: absolute;
@@ -31,12 +30,20 @@
 
 }
 
-.activity-block button:hover {
+.buy-button {
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 18%;
+    transition: 0.2s
+
+}
+.activity-block button:hover:enabled {
     transform: scale(1.1);
+    z-index: 999;
 }
 
-.activity-block button:hover ~ .activity-block {
-    right: 3px;
-    bottom: 3px;
-    box-shadow: none
+.activity-block :disabled {
+    box-shadow: 0
 }

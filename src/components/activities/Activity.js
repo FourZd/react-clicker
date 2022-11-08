@@ -24,7 +24,7 @@ export default function Activity(props) {
 
                     />
                     <h3>{activity.price}$</h3>
-                    <ActivityBuy // Buy one
+                    <ActivityBuy  // Buy one
                         disabled = {money >= activity.price ? false : true}
                         quantity = {1}
                         price = {activity.price}
