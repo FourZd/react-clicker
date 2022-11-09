@@ -38,7 +38,7 @@ export default function ActivitiesList() {
         <article className='activities'>
             <Activity 
                 activitiesList = {activityList}
-
+                setActivityList = {setActivityList}
             />
         </article>
     )

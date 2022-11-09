@@ -24,7 +24,8 @@ class ActivityGenerator {
             duration: durationList(id),
             quantity: quantityList(id),
             income: income,
-            price: price
+            price: price,
+            cooldown: false
         }
         return activity
     }
