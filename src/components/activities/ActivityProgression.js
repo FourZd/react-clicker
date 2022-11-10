@@ -4,16 +4,15 @@ import { durationSelector } from '../../store/reducers/activities/activityDurati
 import { useState } from 'react';
 
 export default function ActivityProgression(props) {
-    const [countdown, setCountdown] = useState(props.cooldown)
     const [percentages, setPercentages] = useState(100)
     
     const time = useSelector(durationSelector).find(activity => activity.id === props.id)['duration']
-    
-    if (countdown >= 500) {
-        setInterval(() => setCountdown(countdown - 100), 100);
-        setInterval(() => setPercentages((time - countdown) / time * 100), 100);
+    if (props.id === 1) {
+        console.log('ЖОПА', props.cooldown)
     }
-    console.log(countdown)
+ 
+
+    setInterval(() => setPercentages((time - props.cooldown) / time * 100), 1000);
 
     return <ProgressBar animated now={percentages} label={`${percentages}%`} />;
     }

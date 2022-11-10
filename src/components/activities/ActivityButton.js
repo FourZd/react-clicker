@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { quantitySelector } from '../../store/reducers/activities/activityQuantitySlice'
 import { increaseMoney } from '../../store/reducers/values/moneySlice'
@@ -10,12 +10,15 @@ export default function ActivityButton(props) {
     const dispatch = useDispatch()
 
     const buttonCooldown = () => {
-        setTimeOut(true)
-        props.startCooldown(props.id)
+        setTimeOut((isTimedOut) => !isTimedOut)
+        
+        props.changeState(props.id, true)
+        props.restartCooldown()
+        
         
         setTimeout(() => {
-            props.finishCooldown(props.id)
-            setTimeOut(false)
+            setTimeOut((isTimedOut) => !isTimedOut)
+            props.changeState(props.id, false)
             dispatch(increaseMoney(props.income))
         }, props.duration)
     }

@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import './Activities.css'
 import ActivityBuy from './ActivityBuy'
 import ActivityButton from './ActivityButton'
@@ -9,74 +9,60 @@ import { activityImages } from './ActivityImages'
 import { durationSelector } from '../../store/reducers/activities/activityDurationSlice'
 
 export default function Activity(props) {
-    const totalTime = useSelector(durationSelector)
+    const targetActivity = useSelector(durationSelector).find(activity => activity.id === props.activity.id)
     const money = useSelector(moneySelector)
-    const [cooldownDuration, setCooldownDuration] = useState()
+    const [cooldownDuration, setCooldownDuration] = useState(0)
 
-    const toggleActivity = (id, state) => {
-        const updatedActivityList = props.activitiesList.map(activity => {
-            if (activity.id === id) {
-                const changedState = activity
-                changedState.cooldown = state
-                
-                return changedState
-            } else return activity
-        
-        })
-        
-        props.setActivityList(updatedActivityList)
-        console.log('ffffffffffff', updatedActivityList)
-    }
-    const startCooldown = (id) => {
-        const targetActivity = totalTime.find(activity => activity.id === id)
+    const restartCooldown = () => {
         setCooldownDuration(targetActivity['duration'])
-        toggleActivity(id, true)
     }
-    const finishCooldown = (id) => {
-        setCooldownDuration(0)
-        toggleActivity(id, false)
-    }
+
+    const cooldownTick = () => {
+        let updatedDuration = cooldownDuration
+        updatedDuration -= 1000
+        setCooldownDuration(updatedDuration)
+        }
+        
+    useEffect(() => {
+        
+        if (cooldownDuration > 0) {
+            console.log(cooldownDuration)
+            const interval = setInterval(() => setCooldownDuration(cooldownDuration - 1000), 1000);
+        }
+    });
+
     return (
-        props.activitiesList.map(activity => {
-            return (
-                <section className='activity-block'>
-                    <div className='inside-block'>
-                        <h4 className='activity-image'>
-                            <img  src={'./img/' + activityImages.find(image => image.id === activity.id)['image']}/>
-                            <p className='activity-quantity'>{activity.quantity}</p>
-                        </h4>
-                        <h3 className='activity-info'>
-                            {activity.name}
-                            <ActivityProgression 
-                                id = {activity.id}
-                                cooldown = {cooldownDuration}
-                                inCooldown = {activity.cooldown}
-                                key={activity.cooldown}
-                            />
-                        </h3>
-                        
-                        <ActivityButton 
-                            id = {activity.id}
-                            income = {activity.income}
-                            duration = {activity.duration}
-                            quantity = {activity.quantity}
-                            startCooldown = {startCooldown}
-                            finishCooldown = {finishCooldown}
-                        />
-                        
-                        <ActivityBuy  // Buy one
-                            disabled = {money >= activity.price ? false : true}
-                            quantity = {1}
-                            price = {activity.price}
-                            id = {activity.id}
-                        />
-                        
-                    </div>
-                </section>
-            )
-        })
-    )
-}
-
-
-/* Post something h1 should dissapear after the first click */
+        <section className='activity-block'>
+            <div className='inside-block'>
+                <h4 className='activity-image'>
+                    <img  src={'./img/' + activityImages.find(image => image.id === props.activity.id)['image']}/>
+                    <p className='activity-quantity'>{props.activity.quantity}</p>
+                </h4>
+                <h3 className='activity-info'>
+                    {props.activity.name}
+                    <ActivityProgression 
+                        id = {props.activity.id}
+                        cooldown = {cooldownDuration}
+                        inCooldown = {props.activity.cooldown}
+                    />
+                </h3>
+                
+                <ActivityButton 
+                    id = {props.activity.id}
+                    income = {props.activity.income}
+                    duration = {props.activity.duration}
+                    quantity = {props.activity.quantity}
+                    changeState = {props.changeActivityState}
+                    restartCooldown = {restartCooldown}
+                />
+                
+                <ActivityBuy  // Buy one
+                    disabled = {money >= props.activity.price ? false : true}
+                    quantity = {1}
+                    price = {props.activity.price}
+                    id = {props.activity.id}
+                />
+                
+            </div>
+        </section>
+    )}
