@@ -1,18 +1,37 @@
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { durationSelector } from '../../store/reducers/activities/activityDurationSlice';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { cooldownSelector } from '../../store/reducers/activities/activityCooldownSlice';
+import { progressionSelector, updateProgression } from '../../store/reducers/activities/activityProgressionSlice';
 
 export default function ActivityProgression(props) {
-    const [percentages, setPercentages] = useState(100)
-    
-    const time = useSelector(durationSelector).find(activity => activity.id === props.id)['duration']
-    if (props.id === 1) {
-        console.log('ЖОПА', props.cooldown)
+    const dispatch = useDispatch()
+    const percentages = useSelector(progressionSelector).find(activity => activity.id === props.id)['percentages']
+    const inCooldown = useSelector(cooldownSelector).find(activity => activity.id === props.id)['cooldown']
+    const cooldownDuration = useSelector(durationSelector).find(activity => activity.id === props.id)['duration']
+    let cooldown
+    let interval
+    const func = () => {
+        if (cooldown === 0) {
+            clearInterval(interval)
+            return
+        }
+        cooldown -= 100
+        const percentages = 100 - (cooldown/cooldownDuration*100)
+        dispatch(updateProgression({id: props.id, progression: percentages}))
     }
- 
+    useEffect(() => {
+        if (inCooldown) {
+            cooldown = cooldownDuration
+            interval = setInterval(() => {
+                func()
+                
+            }, 100)
+        } 
+    }, [inCooldown]);
 
-    setInterval(() => setPercentages((time - props.cooldown) / time * 100), 1000);
-
-    return <ProgressBar animated now={percentages} label={`${percentages}%`} />;
+    return(
+        <ProgressBar animated now={percentages} />
+    )
     }

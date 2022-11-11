@@ -25,7 +25,6 @@ class ActivityGenerator {
             quantity: quantityList(id),
             income: income,
             price: price,
-            cooldown: false
         }
         return activity
     }
