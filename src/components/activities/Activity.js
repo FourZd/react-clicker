@@ -26,6 +26,8 @@ export default function Activity(props) {
                     <ActivityProgression 
                         id = {props.activity.id}
                         key = {props.activity.id}
+                        income = {props.activity.income}
+                        available = {!!props.activity.quantity}
                     />
                 </h3>
                 
