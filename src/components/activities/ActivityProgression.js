@@ -32,6 +32,6 @@ export default function ActivityProgression(props) {
     }, [inCooldown]);
 
     return(
-        <ProgressBar animated={inCooldown ? true : false} striped={props.available ? true : false}  now={percentages} label={`${props.income}$`}/>
+        <ProgressBar className='activity-progression-bar' animated={inCooldown ? true : false} striped={props.available ? true : false}  now={percentages} label={`${props.income}$`}/>
     )
     }

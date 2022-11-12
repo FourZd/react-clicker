@@ -17,11 +17,11 @@ export default function Activity(props) {
     return (
         <section className='activity-block'>
             <div className='inside-block'>
-                <h4 className='activity-image'>
+                <div className='activity-image'>
                     <img  src={'./img/' + activityImages.find(image => image.id === props.activity.id)['image']}/>
                     <p className='activity-quantity'>{props.activity.quantity}</p>
-                </h4>
-                <h3 className='activity-info'>
+                </div>
+                <div className='activity-info'>
                     {props.activity.name}
                     <ActivityProgression 
                         id = {props.activity.id}
@@ -29,23 +29,26 @@ export default function Activity(props) {
                         income = {props.activity.income}
                         available = {!!props.activity.quantity}
                     />
-                </h3>
+                </div>
                 
-                <ActivityButton 
-                    id = {props.activity.id}
-                    income = {props.activity.income}
-                    duration = {props.activity.duration}
-                    quantity = {props.activity.quantity}
-                    changeState = {props.changeActivityState}
-                />
-                
-                <ActivityBuy  // Buy one
-                    disabled = {money >= props.activity.price ? false : true}
-                    quantity = {1}
-                    price = {props.activity.price}
-                    id = {props.activity.id}
-                />
-                
+                <div className='activity-buttons'> 
+
+                    <ActivityBuy  // Buy one
+                        disabled = {money >= props.activity.price ? false : true}
+                        quantity = {1}
+                        price = {props.activity.price}
+                        id = {props.activity.id}
+                    />
+                    <ActivityButton 
+                        id = {props.activity.id}
+                        income = {props.activity.income}
+                        duration = {props.activity.duration}
+                        quantity = {props.activity.quantity}
+                        changeState = {props.changeActivityState}
+                    />
+                    
+                    
+                </div>
             </div>
         </section>
     )}
