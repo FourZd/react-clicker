@@ -4,18 +4,19 @@ import React, { Fragment } from "react";
 import ShopAssortment from './components/shop/ShopAssortment';
 import ActivitiesList from './components/activities/ActivitiesList';
 import './App.css'
-import './components/activities/Activities.css'
+import './main.css'
 
 function App() {
   return (
     <Fragment>
         <ShowValues />
         <main>
-            <article className='activities'>
+            <article className='main'>
                 <ActivitiesList />
+                <ShopAssortment />
             </article>
             
-            <ShopAssortment />
+            
         </main>
     </Fragment>
   );

@@ -7,7 +7,7 @@ export default function ShowValues(props) {
 
     return (
         <section>
-            <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+            <Navbar className='nav-bar' collapseOnSelect expand="lg" variant="light">
                 <Navbar.Brand className='brand'>Political Influencer Super Simulator</Navbar.Brand>
                 <Nav className="mr-auto">
                     

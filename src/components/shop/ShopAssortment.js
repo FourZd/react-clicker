@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { decreaseMoney, moneySelector } from '../../store/reducers/values/moneySlice'
 import { increaseAllMultipliers, increaseSingleMultiplier } from '../../store/reducers/activities/activityIncomeMultiplierSlice'
-import ShopAccess from './ShopAccess'
+import ShopItem from './ShopItem'
 
 
 export default function ShopAssortment() {
@@ -76,7 +76,7 @@ export default function ShopAssortment() {
 
 
     return (
-        <ShopAccess
+        <ShopItem
             shopAssortment = {shopAssortment} 
             handleUpgradeBuy = {handleUpgradeBuy}
         />
