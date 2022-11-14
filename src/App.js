@@ -7,19 +7,20 @@ import './App.css'
 import './main.css'
 
 function App() {
-  return (
-    <Fragment>
-        <ShowValues />
-        <main>
-            <article className='main'>
-                <ActivitiesList />
-                <ShopAssortment />
-            </article>
-            
-            
-        </main>
-    </Fragment>
-  );
+    return (
+        <Fragment>
+            <ShowValues />
+            <main>
+                <article className='main'>
+                    <ActivitiesList />
+                    <section className='shop'>
+                        <ShopAssortment />
+                    </section>
+
+                </article>
+            </main>
+        </Fragment>
+    );
 }
 
 export default App;
