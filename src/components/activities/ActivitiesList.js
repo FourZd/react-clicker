@@ -4,7 +4,7 @@ import {activityIncomeMultiplierSelector} from '../../store/reducers/activities/
 import { durationSelector } from '../../store/reducers/activities/activityDurationSlice'
 import { quantitySelector } from '../../store/reducers/activities/activityQuantitySlice'
 import Activity from './Activity'
-import './Activities.css'
+import '../../main.css'
 import {activityGenerator} from './ActivitiesData'
 
 export default function ActivitiesList() {
@@ -38,12 +38,10 @@ export default function ActivitiesList() {
     return (
         activityList.map(activity => {
             return (
-                <section className='activity'>
-                    <Activity 
-                        key = {activity.id}
-                        activity = {activity}
-                    />
-                </section>
+                <Activity 
+                    key = {activity.id}
+                    activity = {activity}
+                />
                 )
             }
         )

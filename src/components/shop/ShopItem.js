@@ -5,16 +5,16 @@ export default function ShopItem(props) {
     return (
         availableAssortment.map((item) => {
             return ( 
-                <div className='item' key={item.itemId}>
+                <div onClick={() => props.handleUpgradeBuy(item.itemId)} className='item' key={item.itemId}>
                     <div>
                         <img className='item-img' src={'./img/' + item.image} />
                     </div>
-                    <div>
+                    <div className='item-description'>
                         <h4>{item.name}</h4>
                         <p>Price: {item.price}$</p>
                         <p>{item.description}</p>
                     </div>
-                    <button onClick={() => props.handleUpgradeBuy(item.itemId)}>Buy</button>
+                    <button >Buy</button>
                 </div>
                 )
             }

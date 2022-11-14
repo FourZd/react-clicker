@@ -1,9 +1,5 @@
-
-
 body {
     margin: 0;
-    height: 100%;
-    width:auto;
     background-image: url('../public/img/background.png');
     background-size: cover;
 }

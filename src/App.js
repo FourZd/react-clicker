@@ -11,8 +11,11 @@ function App() {
         <Fragment>
             <ShowValues />
             <main>
-                <article className='main'>
-                    <ActivitiesList />
+                <article className='main-block'>
+                    <section className='activities'>
+                        <ActivitiesList />
+                    </section>
+                    
                     <section className='shop'>
                         <ShopAssortment />
                     </section>

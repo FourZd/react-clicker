@@ -1,4 +1,4 @@
-.main {
+.main-block {
     width: 70%;
     background-color: rgba(0, 0, 0, 0.4);
     -webkit-box-shadow: 0px 0px 20px 25px rgba(0, 0, 0, 0.4);
@@ -6,13 +6,10 @@
     box-shadow: 0px 0px 20px 25px rgba(4, 4, 4, 0.4);
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5vh;
-    position: relative;
+    margin-top: 4.2vw;
+    
 }
 
-.shop {
-    width: 55%;
-    right: 0;
-    top: 0;
-    position: absolute;
+.activities {
+    margin-left: 6vh;
 }

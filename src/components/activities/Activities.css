@@ -1,12 +1,12 @@
 
 
 .activity-block {
-    width: 40%;
+    width: 45%;
     height: 12vh;
-    margin-left: 4vh;
     margin-top: 1vh;
     margin-bottom: 1vh;
-    display: block;
+    margin-right: 5vh;
+    display: inline-block;
     position: relative;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 10px;
