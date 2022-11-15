@@ -1,4 +1,7 @@
 .sidebar {
+    background-image: url('../../public/img/Sidebar background.png');
+    background-size: cover;
+    background-position: center;
     opacity: 0.7;
     position: absolute;
     background-color: aqua;
@@ -8,6 +11,9 @@
     height: 100vh;
 }
 
-.logo {
-    width: 100%;
+.title {
+    font-size: 20px;
+
 }
+
+.sidebar-components {}
