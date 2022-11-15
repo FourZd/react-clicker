@@ -4,7 +4,9 @@ import './Sidebar.css'
 export default function Sidebar(){
      return (
           <nav className="sidebar">
-               <NavbarBrand>Logo is here</NavbarBrand>
+               <NavbarBrand>
+                    <img className='logo' src='./img/Logo.png' />
+               </NavbarBrand>
                <ul>Values
                     <li>Money</li>
                     <li>Chaotic</li>

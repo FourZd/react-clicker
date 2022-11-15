@@ -1,8 +1,13 @@
 .sidebar {
+    opacity: 0.7;
     position: absolute;
-    background-color: red;
+    background-color: aqua;
     left: 0;
     top: 0;
     width: 10vw;
-    height: 100vw;
+    height: 100vh;
+}
+
+.logo {
+    width: 100%;
 }
