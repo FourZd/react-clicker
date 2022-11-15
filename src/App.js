@@ -1,20 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ShowValues from "./components/statistics/ShowValues";
 import React, { Fragment } from "react";
 import ShopAssortment from './components/shop/ShopAssortment';
 import ActivitiesList from './components/activities/ActivitiesList';
 import './App.css'
 import './main.css'
+import SideBar from './components/Sidebar';
 
 function App() {
     return (
         <Fragment>
-            <ShowValues />
+            <SideBar />
             <main>
                 <article className='main-block'>
-                    <section className='activities'>
+                    <ul className='activities'>
                         <ActivitiesList />
-                    </section>
+                    </ul>
                     
                     <section className='shop'>
                         <ShopAssortment />

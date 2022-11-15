@@ -1,5 +1,8 @@
 .main-block {
     width: 70%;
+    height: auto;
+    display: block;
+    position: relative;
     background-color: rgba(0, 0, 0, 0.4);
     -webkit-box-shadow: 0px 0px 20px 25px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 0px 0px 20px 25px rgba(4, 4, 4, 0.4);
@@ -10,6 +13,15 @@
     
 }
 
+
+
 .activities {
-    margin-left: 6vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: 7vh;
+    padding: 0;
+    height: 100vh;
+    list-style-type: none;
+
 }

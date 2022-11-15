@@ -15,7 +15,11 @@ export default function Activity(props) {
     
 
     return (
-        <section className='activity-block'>
+        <li className={props.activity.quantity
+            ? 'activity-block' 
+            : (money > props.activity.price) 
+                ? 'available-to-buy' 
+                : 'disabled'}>
             <div className='inside-block'>
                 <div className='activity-image'>
                     <img  src={'./img/' + activityImages.find(image => image.id === props.activity.id)['image']}/>
@@ -50,5 +54,5 @@ export default function Activity(props) {
                     
                 </div>
             </div>
-        </section>
+        </li>
     )}
