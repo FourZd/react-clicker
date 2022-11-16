@@ -1,4 +1,6 @@
 import { NavbarBrand } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
+import { moneySelector } from '../store/reducers/values/moneySlice'
 import './Sidebar.css'
 
 export default function Sidebar(){
@@ -8,14 +10,21 @@ export default function Sidebar(){
                     <h1 className='title'>Political Influencer Simulator</h1>
                </NavbarBrand>
                <section className='sidebar-components'>
-                    <ul>Values
-                         <li>Money</li>
-                         <li>Chaotic</li>
+                    <ul className='value-icons'>
+                         <li>
+                              <img src='./img/Value.png' /> {useSelector(moneySelector)}
+                         </li>
+                         <li>
+                              <img src='./img/Value.png' /> Chaotic
+                         </li>
                     </ul>
-                    <ul>Menu
-                         <li>Staff image, name on hover</li>
-                         <li>Upgrades image, name on hover</li>
-                         <li></li>
+                    <ul className='menu-icons'>
+                         <li>
+                              <img src='./img/Shop.png' alt='staff' />
+                         </li>
+                         <li>
+                              <img src='./img/Shop.png' alt='upgrades' /> 
+                         </li>
                     </ul>
                </section>
           </nav>

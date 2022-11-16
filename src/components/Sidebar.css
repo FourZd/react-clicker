@@ -9,6 +9,7 @@
     top: 0;
     width: 10vw;
     height: 100vh;
+    
 }
 
 .title {
@@ -16,4 +17,18 @@
 
 }
 
-.sidebar-components {}
+.sidebar-components ul {
+    list-style-type: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    text-align: center;
+}
+    
+.value-icons img {
+    width: 5vh
+}
+
+.menu-icons img {
+    width: 7vh
+}
