@@ -2,6 +2,7 @@ import { NavbarBrand } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { moneySelector } from '../store/reducers/values/moneySlice'
 import './Sidebar.css'
+import OpenShop from './shop/OpenShop'
 
 export default function Sidebar(){
      return (
@@ -20,7 +21,7 @@ export default function Sidebar(){
                     </ul>
                     <ul className='menu-icons'>
                          <li>
-                              <img src='./img/Shop.png' alt='staff' />
+                              <OpenShop />
                          </li>
                          <li>
                               <img src='./img/Shop.png' alt='upgrades' /> 

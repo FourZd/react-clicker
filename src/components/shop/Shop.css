@@ -14,3 +14,7 @@
 .item-description {
     visibility: hidden;
 }
+
+.shop-offconvas {
+    position: absolute
+}

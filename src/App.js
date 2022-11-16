@@ -10,7 +10,7 @@ function App() {
     return (
         <Fragment>
             <SideBar />
-            <main>
+            <main canvas>
                 <article className='main-block'>
                     <ul className='activities'>
                         <ActivitiesList />
