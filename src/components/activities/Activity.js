@@ -11,8 +11,27 @@ import { durationSelector } from '../../store/reducers/activities/activityDurati
 
 export default function Activity(props) {
     const money = useSelector(moneySelector)
-    
-    
+    const [cooldownDuration, setCooldownDuration] = useState(0)
+
+    const restartCooldown = () => {
+        setCooldownDuration(targetActivity['duration'])
+    }
+        
+    useEffect(() => {
+        let interval
+        if (props.activity.cooldown) {
+            if (cooldownDuration > 0) {
+                if (props.activity.id === 1) {
+                    console.log('Activity.js state', cooldownDuration)
+                }
+                interval = setInterval(() => setCooldownDuration(cooldownDuration - 1000), 1000);
+            } else {
+                clearInterval(interval)
+            }
+        } else {
+            setCooldownDuration(0)
+        }
+    });
 
     return (
         <li className={props.activity.quantity
@@ -29,9 +48,9 @@ export default function Activity(props) {
                     {props.activity.name}
                     <ActivityProgression 
                         id = {props.activity.id}
-                        key = {props.activity.id}
-                        income = {props.activity.income}
-                        available = {!!props.activity.quantity}
+                        cooldown = {cooldownDuration}
+                        inCooldown = {props.activity.cooldown}
+                        totalTime = {targetActivity['duration']}
                     />
                 </div>
                 
