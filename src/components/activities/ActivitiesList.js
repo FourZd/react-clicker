@@ -35,20 +35,6 @@ export default function ActivitiesList() {
         getActivityQuantity
         ))
 
-    const changeActivityState = (id, state) => {
-        const updatedActivityList = activityList.map(activity => {
-            const newActivity = activity
-            newActivity.cooldown = state
-            if (activity.id === id) {
-                console.log(newActivity.cooldown)
-                return newActivity
-            } else {
-                return activity
-            }
-        }) 
-        setActivityList(updatedActivityList)
-
-    }
     return (
         activityList.map(activity => {
             return (
