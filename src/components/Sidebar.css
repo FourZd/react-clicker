@@ -1,19 +1,9 @@
-.sidebar {
-    background-image: url('../../public/img/Sidebar background.png');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.7;
-    position: absolute;
-    background-color: aqua;
-    left: 0;
-    top: 0;
-    width: 10vw;
-    height: 100vh;
-    
-}
+
 
 .title {
     font-size: 20px;
+    white-space: initial;
+    text-align: center;
 
 }
 

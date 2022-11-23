@@ -1,25 +1,24 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Fragment } from "react";
-import ShopAssortment from './components/shop/ShopAssortment';
 import ActivitiesList from './components/activities/ActivitiesList';
 import './App.css'
-import './main.css'
 import SideBar from './components/Sidebar';
+import Offcanvas from './components/Offcanvas';
 
 function App() {
     return (
         <Fragment>
-            <SideBar />
+            <section>
+                <Offcanvas />
+            </section>
+            <nav className="sidebar">
+                <SideBar />
+            </nav>
             <main canvas>
                 <article className='main-block'>
                     <ul className='activities'>
                         <ActivitiesList />
                     </ul>
-                    
-                    <section className='shop'>
-                        <ShopAssortment />
-                    </section>
-
                 </article>
             </main>
         </Fragment>

@@ -6,8 +6,6 @@ import ActivityProgression from './ActivityProgression'
 import { moneySelector } from '../../store/reducers/values/moneySlice'
 import { useSelector } from 'react-redux'
 import { activityImages } from './ActivityImages'
-import { cooldownSelector } from '../../store/reducers/activities/activityCooldownSlice'
-import { durationSelector } from '../../store/reducers/activities/activityDurationSlice'
 
 export default function Activity(props) {
     const money = useSelector(moneySelector)

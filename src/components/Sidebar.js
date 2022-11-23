@@ -1,12 +1,15 @@
 import { NavbarBrand } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { changeActiveMenu } from '../store/reducers/interface/offcanvasSlice'
 import { moneySelector } from '../store/reducers/values/moneySlice'
 import './Sidebar.css'
-import OpenShop from './shop/OpenShop'
+
 
 export default function Sidebar(){
+     const dispatch = useDispatch()
+
      return (
-          <nav className="sidebar">
+          <nav>
                <NavbarBrand>
                     <h1 className='title'>Political Influencer Simulator</h1>
                </NavbarBrand>
@@ -21,10 +24,10 @@ export default function Sidebar(){
                     </ul>
                     <ul className='menu-icons'>
                          <li>
-                              <OpenShop />
+                              <img src='./img/Shop.png' alt='upgrades' onClick={() => {dispatch(changeActiveMenu('shop'))}}/>
                          </li>
                          <li>
-                              <img src='./img/Shop.png' alt='upgrades' /> 
+                               
                          </li>
                     </ul>
                </section>

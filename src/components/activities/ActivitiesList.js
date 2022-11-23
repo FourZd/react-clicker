@@ -4,7 +4,6 @@ import {activityIncomeMultiplierSelector} from '../../store/reducers/activities/
 import { durationSelector } from '../../store/reducers/activities/activityDurationSlice'
 import { quantitySelector } from '../../store/reducers/activities/activityQuantitySlice'
 import Activity from './Activity'
-import '../../main.css'
 import {activityGenerator} from './ActivitiesData'
 
 export default function ActivitiesList() {
