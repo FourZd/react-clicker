@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { decreaseMoney, moneySelector } from '../../store/reducers/values/moneySlice'
 import { increaseAllMultipliers, increaseSingleMultiplier } from '../../store/reducers/activities/activityIncomeMultiplierSlice'
 import ShopItem from './ShopItem'
+import './Shop.css'
 
 
 export default function ShopAssortment() {
@@ -76,9 +77,11 @@ export default function ShopAssortment() {
 
 
     return (
-        <ShopItem
-            shopAssortment = {shopAssortment} 
-            handleUpgradeBuy = {handleUpgradeBuy}
-        />
+        <div>
+            <ShopItem
+                shopAssortment = {shopAssortment} 
+                handleUpgradeBuy = {handleUpgradeBuy}
+            />
+        </div>
     )
 }
